@@ -1,42 +1,58 @@
-# Image Downloader Script
+# Ubuntu Image Fetcher
 
-This Python script downloads an image from a provided URL and saves it in a folder called `Fetched_Images`. It handles errors gracefully and checks if the image URL is valid before downloading.
+Welcome to the Ubuntu Image Fetcher! This Python tool helps you download images from the web and saves them in a folder called `Fetched_Images`. You can even handle multiple URLs at once and avoid downloading duplicate images.
 
 ## Features
 
-- Prompts the user to enter an image URL.
-- Creates a folder called `Fetched_Images` if it doesn't already exist.
-- Downloads the image and saves it in the `Fetched_Images` folder.
-- Handles errors such as network issues or invalid URLs.
+- Download images from URLs provided by the user.
+- Create a folder called `Fetched_Images` to store the images.
+- Skip downloading duplicate images if they've already been saved.
+- Handles basic errors like network issues or invalid URLs.
 
 ## Requirements
 
-You need Python 3 and the `requests` library installed. You can install the `requests` library using the following command:
+You need Python 3 and the `requests` library to use this script. If you don't have `requests` installed, you can install it using pip:
+
 pip install requests
+
 
 ## How to Use
 
-1. Clone or download the repository to your local machine.
-2. Open the terminal or command prompt and navigate to the folder where the script is located.
-3. Run the script by typing: 
-   python image_downloader.py
-4. When prompted, paste the URL of the image you want to download.
-5. The image will be saved in a folder called `Fetched_Images` in the same directory.
+1. Download or clone this repository to your computer.
+2. Open a terminal or command prompt and navigate to the folder where the script is located.
+3. Run the script with:
 
-## Example
-
-Enter the URL of the image: https://example.com/path/to/image.jpg
-Image saved as Fetched_Images/image.jpg
+python image_fetcher.py
 
 
-If there is an error, such as an invalid URL or network issue, the script will display an error message.
+4. When prompted, enter the image URLs you want to download. You can enter multiple URLs, separated 
+   by commas.
+5. The script will download the images and save them to a folder called `Fetched_Images`.
+
+### Example
+
+Enter image URLs (separate by commas): https://example.com/ubuntu-wallpaper.jpg
+https://example.com/another-image.png
+
+✓ Successfully fetched and saved: ubuntu-wallpaper.jpg
+✓ Successfully fetched and saved: another-image.png
+
+
+If you try to download the same image again, it will be skipped to avoid duplicates:
+
+Enter image URLs (separate by commas): https://example.com/ubuntu-wallpaper.jpg
+https://example.com/ubuntu-wallpaper.jpg
+
+✓ Successfully fetched and saved: ubuntu-wallpaper.jpg
+✗ Duplicate image found: ubuntu-wallpaper.jpg. Skipping...
+
 
 ## Notes
 
-- The image is saved with its original filename if possible, or a default name (`image.jpg`) will be used.
-- The script checks if the `Fetched_Images` folder exists and creates it if necessary.
-- It only downloads images, so URLs that point to other resources may not work.
+- The images are saved in the `Fetched_Images` folder in the same directory as the script.
+- If the URL doesn’t point to an image, it will be skipped.
+- If an image is already downloaded, it won’t be downloaded again.
 
 ## License
 
-Feel free to use or modify this code as you like! No formal license, just credit the original idea if you share it.
+Feel free to use this tool however you like! No special license—just give credit if you share it.
